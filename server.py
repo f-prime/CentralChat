@@ -18,6 +18,7 @@ class CentralServer:
         while True:
             data = obj.recv(1024)
             if not data:
+                self.nodes.remove(obj)
                 break
             else:
                 for x in self.nodes:
