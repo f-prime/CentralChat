@@ -28,8 +28,11 @@ class CentralClient:
                     data = json.loads(data)
                 except:
                     continue
-                if data['room'] == self.room and data['id'] != self.id and data['msg'] != '':
-                    print data['nick']+": "+data['msg']
+                try:
+                    if data['room'] == self.room and data['id'] != self.id and data['msg'] != '':
+                        print data['nick']+": "+data['msg']
+                except:
+                    continue
 if __name__ == "__main__":
     nick = raw_input("Nick: ")
     room = raw_input("Room: ")
