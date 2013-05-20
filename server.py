@@ -6,8 +6,8 @@ class CentralServer:
         self.nodes = []
         self.sock = socket.socket()
     def main(self):
-        self.sock.bind(("0.0.0.0", 5124))
         self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.sock.bind(("0.0.0.0", 5124)
         self.sock.listen(5)
         while True:
             obj, conn = self.sock.accept()
