@@ -5,7 +5,7 @@ import random
 
 class CentralClient:
     def __init__(self, room, nick):
-        self.ip = ""
+        self.ip = "centralchat.zapto.org"
         self.port = 5124
         self.nick = nick
         self.sock = socket.socket()
