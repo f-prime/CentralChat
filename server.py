@@ -22,6 +22,10 @@ class CentralServer:
                 break
             else:
                 for x in self.nodes:
-                    x.send(data)
+                    try:
+                        x.send(data)
+                    except:
+                        self.nodes.remove(x)
+                        continue
 if __name__ == "__main__":
     CentralServer().main()
