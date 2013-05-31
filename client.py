@@ -5,7 +5,8 @@ import random
 
 class CentralClient:
     def __init__(self, room, nick):
-        self.ip = "centralchat.zapto.org"
+        #self.ip = "centralchat.zapto.org"
+        self.ip = ""
         self.port = 5124
         self.nick = nick
         self.sock = socket.socket()
@@ -29,7 +30,7 @@ class CentralClient:
                 except:
                     continue
                 try:
-                    if data['room'] == self.room and data['id'] != self.id and data['msg'] != '':
+                    if data['room'] == self.room and data['msg'] != '':
                         print data['nick']+": "+data['msg']
                 except:
                     continue

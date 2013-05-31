@@ -16,7 +16,7 @@ class CentralServer:
     
     def handle(self, obj):
         while True:
-            data = obj.recv(1024)
+            data = obj.recv(102400)
             if not data:
                 self.nodes.remove(obj)
                 break
