@@ -26,6 +26,7 @@ class CentralChat:
         self.text.config(state=DISABLED)
         self.text.pack(side=LEFT)
         scroll = Scrollbar(text)
+        self.scroll = scroll
         scroll.pack(side=RIGHT, fill=Y)
         text.pack()
 
@@ -48,7 +49,7 @@ class CentralChat:
         self.text.config(state=NORMAL)
         self.text.insert(END, text)
         self.text.config(state=DISABLED)
-
+        self.text.see(END)
     def user_input(self):
         self.msg = Entry(self.root)
         self.msg.bind("<Return>", self.send)
