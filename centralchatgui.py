@@ -13,7 +13,7 @@ class CentralChat:
         self.root = root
         self.frame = Frame(self.root)
         self.frame.pack()
-        self.server = ""
+        self.server = "centralchat.zapto.org"
         self.port = 5124
         self.sock = socket.socket()
         threading.Thread(target=self.listen).start()
@@ -22,7 +22,7 @@ class CentralChat:
         
     def gui(self):
         text = Frame(self.frame)
-        self.text = Text(text, height=20, width=50, background='white')
+        self.text = Text(text, height=20, width=80, background='white')
         self.text.config(state=DISABLED)
         self.text.pack(side=LEFT)
         scroll = Scrollbar(text)
@@ -37,7 +37,7 @@ class CentralChat:
             if data:
                 try:
                     data = json.loads(data)
-                    if data['room'] == room:
+                    if data['room'] == room and data['msg'] != '':
                         message = "{0}: {1}\n".format(data['nick'], data['msg'])
                         self.display(message)
                 except Exception, error:
